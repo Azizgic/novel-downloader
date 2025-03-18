@@ -13,7 +13,7 @@ import hashlib
 # Initialize colorama
 init(autoreset=True)
 
-class HighPerformanceNovelDownloader:
+class NovelDownloader:
     """Downloader with resume capability and caching for multiple novels"""
     
     def __init__(self, config: dict, entry_url: str):
@@ -182,7 +182,7 @@ async def main_logic(config):
             print(Fore.YELLOW + "No previous downloads found. Please provide URLs.")
             return
 
-    async with HighPerformanceNovelDownloader(config, config['urls'][0]) as downloader:
+    async with NovelDownloader(config, config['urls'][0]) as downloader:
         await downloader.run()
 
 def list_incomplete_downloads():
@@ -216,21 +216,23 @@ def clean_state_file():
     else:
         print(Fore.YELLOW + "No state file found.")
 
-def delete_novel_state(novel_id: str):
+ def delete_novel_state(novel_id: str):
     """Remove a specific novel's state from the state file"""
     if os.path.exists('.novel_downloads_state.json'):
         with open('.novel_downloads_state.json', 'r') as f:
             state = json.load(f)
-        
-        if novel_id in state:
-            del state[novel_id]
+            
+            statel = list(state.copy().items())
+        if len(statel) > int(novel_id)-1:
+            del statel[int(novel_id) - 1]
             with open('.novel_downloads_state.json', 'w') as f:
-                json.dump(state, f)
+                json.dump(dict(statel), f)
             print(Fore.GREEN + f"Deleted state for novel ID: {novel_id}")
         else:
             print(Fore.YELLOW + f"No state found for novel ID: {novel_id}")
     else:
         print(Fore.YELLOW + "No state file found.")
+
 
 def main():
     """Entry point for the CLI tool"""
