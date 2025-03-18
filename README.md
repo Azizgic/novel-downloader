@@ -59,7 +59,7 @@ novel-downloader https://example.com/novelA -o novelA_output
 ```sh
 novel-downloader
 ```
-it will give you options for available novel to resume, and the just type their id,amd they will be resumed. 
+The tool will display a list of available novels that can be resumed. Simply enter the ID of the novel you want to continue downloading, and it will resume from where it left off.
 
 ## Features  
 
