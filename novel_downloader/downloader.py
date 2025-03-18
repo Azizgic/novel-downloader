@@ -141,13 +141,22 @@ def parse_args():
     parser = argparse.ArgumentParser(description='High-performance novel downloader', add_help=True)
     parser.add_argument('urls', nargs='*', help='Input URL(s) (novel or TOC page)')
     parser.add_argument('-o', '--output', default='novels', help='Output directory')
+    parser.add_argument('--default-dir', default='novels', help='Default output directory')
     parser.add_argument('--list', action='store_true', help='List incomplete downloads')
     parser.add_argument('--clean', action='store_true', help='Clean the state file')
     parser.add_argument('--delete', help='Delete state for a specific novel ID')
     return vars(parser.parse_args())
 
+def handle_output_path(output: str, default_dir: str) -> str:
+    """Handle output path logic"""
+    if not os.path.isabs(output) and not output.startswith(('.', '/', '\\', '~')):
+        return os.path.join(default_dir, output)
+    return output
+
 async def main_logic(config):
     """Main logic for the CLI tool"""
+    config['output'] = handle_output_path(config['output'], config['default_dir'])
+
     if config['list']:
         list_incomplete_downloads()
         return
