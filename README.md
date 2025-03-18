@@ -1,4 +1,4 @@
-not sure if it's legal but I will give disclaimer anyway.. 
+
 ## **Disclaimer**
 
 This software is intended **solely for educational purposes**. By using it, you agree to:
