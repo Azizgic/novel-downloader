@@ -1,66 +1,81 @@
-# Novel Downloader
+# Novel Downloader  
 
-A high-performance Python tool to download novels from the web.
+A high-performance Python tool to download novels from the web.  
 
-## Table of Contents
-1. [Disclaimer](#disclaimer)
-2. [Installation](#installation)
-3. [Usage](#usage)
-4. [Features](#features)
-5. [Contributing](#contributing)
-6. [License](#license)
-7. [Contact](#contact)
+## Table of Contents  
+1. [Disclaimer](#disclaimer)  
+2. [Installation](#installation)  
+3. [Usage](#usage)  
+4. [Features](#features)  
+5. [Contributing](#contributing)  
+6. [License](#license)  
+7. [Contact](#contact)  
 
-## Disclaimer
+## Disclaimer  
 
-This software is intended **solely for educational purposes**. By using it, you agree to:
+This software is intended **solely for educational purposes**. By using it, you agree to:  
 
-1. Use it **legally and ethically**.
-2. Respect **privacy** and **intellectual property rights**.
-3. Obtain proper **authorization** before scraping or downloading content.
+- Use it **legally and ethically**.  
+- Respect **privacy** and **intellectual property rights**.  
+- Obtain proper **authorization** before scraping or downloading content.  
 
-The developers are **not liable** for misuse or damages. Use responsibly.
+The developers are **not liable** for misuse or damages. Use responsibly.  
 
-## Installation
+## Installation  
 
-Follow these steps to install the Novel Downloader:
+Follow these steps to install **Novel Downloader**:  
 
-1. Update your package lists:
-    ```bash
-    apt update & apt upgrade
-    ```
-2. Clone the repository:
-    ```bash
-    git clone https://github.com/Azizgic/novel-downloader.git
-    cd novel-downloader
-    ```
-3. Install Python 3:
-    ```bash
-    apt install python3
-    ```
-4. Install required packages:
-    ```bash
-    pip install -r requirements.txt
-    pip install -e .
-    ```
+```sh  
+# Update your package lists  
+apt update && apt upgrade  
 
-## Usage
+# Clone the repository  
+git clone https://github.com/Azizgic/novel-downloader.git  
+cd novel-downloader  
 
-### Run the tool
-```bash
-novel-downloader --help
+# Install Python 3 (if not installed)  
+apt install python3  
+
+# Install required dependencies  
+pip install -r requirements.txt  
+
+# Install the tool  
+pip install -e .  
+```  
+
+## Usage  
+
+### Display Help  
+```sh  
+novel-downloader --help  
+```  
+
+### Download a Novel  
+```sh  
+novel-downloader https://example.com/novelA -o novelA_output  
 ```
-### Download a novel
-``` bash
-novel-downloader https://example.com/novelA -o novelA_output 
- ```
 
-# Features
+### Resume Download
+```sh
+novel-downloader
+```
+it will give you options for available novel to resume, and the just type their id,amd they will be resumed. 
 
-Resume downloads
+## Features  
 
-Concurrent downloads
+- **Resume downloads** – Continue from where you left off.  
+- **Concurrent downloads** – Speeds up the process with multiple threads.  
+- **Multiple novel support** – Download multiple novels simultaneously.  
+- **User-friendly CLI** – Simple and easy-to-use command-line interface.  
 
-Multiple novel support
+## Contributing  
 
-User-friendly CLI
+Contributions are welcome! Feel free to submit issues and pull requests.  
+
+## License  
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.  
+
+## Contact  
+
+For questions or issues, reach out via [GitHub Issues](https://github.com/Azizgic/novel-downloader/issues).  
