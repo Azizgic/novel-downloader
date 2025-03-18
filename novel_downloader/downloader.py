@@ -216,7 +216,7 @@ def clean_state_file():
     else:
         print(Fore.YELLOW + "No state file found.")
 
- def delete_novel_state(novel_id: str):
+def delete_novel_state(novel_id: str):
     """Remove a specific novel's state from the state file"""
     if os.path.exists('.novel_downloads_state.json'):
         with open('.novel_downloads_state.json', 'r') as f:
