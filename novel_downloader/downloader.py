@@ -141,7 +141,7 @@ class NovelDownloader:
 
     def find_next_url(self, soup: BeautifulSoup, base: str) -> str:
         """Find next chapter URL"""
-        for selector in ['a[rel=next]', '#next_chap', '.next']:
+        for selector in ['a[rel=next]', '#next_chap', '.next', 'link[rel=next]']:
             if link := soup.select_one(selector):
                 return urljoin(base, link['href'])
         return None
